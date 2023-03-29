@@ -2,9 +2,10 @@ package org.example;
 
 public class GPACalculator {
 
+    public static GPA calcGPA(Double grade) {
 
-    public static GPA calcGPA(StudentData studentData) {
-        double grade = studentData.getGrade();
+        //double grade = studentData.getGrade();
+
         if(grade > 100 || grade < 0) {
             throw new IllegalArgumentException();
         }
