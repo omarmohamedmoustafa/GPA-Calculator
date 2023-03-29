@@ -20,14 +20,14 @@ public class Parser {
                 for (int j = 2; j < fields.length; j++) {
                     marks.add(Double.valueOf(fields[j]));
               }
+
                 StudentData newStudent = new StudentData(fields[0],fields[1],marks);
                 System.out.println(newStudent.toString());
                 // after validation set degree and push newStudent to dataArr
                 Validation.IsStudentDataTrue(newStudent);                newStudent.setDegree();
 //              dataArr.add(studentData);
             }
-//
-//
+
 
         } catch(Error e) {
             System.out.println("Exception: " +e);

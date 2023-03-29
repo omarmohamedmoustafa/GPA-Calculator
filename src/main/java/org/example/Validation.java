@@ -1,6 +1,7 @@
 package org.example;
 
 public class Validation {
+
     public  static void IsStudentDataTrue(StudentData student) {
         if (!(student.getName().matches("^[A-Za-z][A-Za-z ]*$"))) {
             throw new IllegalArgumentException("Invalid student name");

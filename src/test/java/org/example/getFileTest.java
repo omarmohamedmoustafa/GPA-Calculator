@@ -11,16 +11,16 @@ class getFileTest {
 
     @Test
     void fileRead() {
-        String [] Arr0 =  {"John Doe","Doe John", ""};
+        String [] Arr0 =  {"1John Doe","","Doe John"};
 
-        String [] Arr1 =  {"John Doe", "","Doe John"};
+        String [] Arr1 =  {"John Doe", "ssss","Doe John"};
 
         String [] Arr2 =  {"John Doe", "1", "Doe John"};
 
         assertAll(
 
-                () -> assertArrayEquals(Arr0, getFile.FileRead("test.txt").toArray()),
-                () -> assertArrayEquals(Arr1, getFile.FileRead("test.txt").toArray()),
+                () -> assertArrayEquals(Arr0, getFile.FileRead("test.txt").toArray(), "Hi"),
+                () -> assertArrayEquals(Arr1, getFile.FileRead("test.txt").toArray(),"Bye"),
                 () -> assertArrayEquals(Arr2, getFile.FileRead("test.txt").toArray())
         );
     }

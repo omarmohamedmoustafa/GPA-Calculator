@@ -17,6 +17,10 @@ class GPACalculatorTest {
         arr.add(60.0);
         s1.setMarks(arr);
 
-        assertEquals(GPA.C, GPACalculator.calcGPA(s1));
+        assertEquals(GPA.C, GPACalculator.calcGPA(s1.getGrade()));
+
+        // All boundaries test
+        // grade >=0  and <=100
     }
+
 }

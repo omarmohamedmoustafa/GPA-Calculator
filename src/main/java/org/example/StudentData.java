@@ -28,13 +28,20 @@ public class StudentData {
     StudentData() {
         this.grade = -1;
     }
-    public StudentData(String name, String id, ArrayList<Double> marks) {
+    public StudentData(String name , String id, ArrayList<Double> marks) {
         this.name = name;
         this.id = id;
         this.marks = marks;
         this.grade = -1;
     }
 
+    public GPA getGpa() {
+        return gpa;
+    }
+
+    public double getGrade() {
+        return grade;
+    }
 
     private void setGpa() {
         this.gpa = GPACalculator.calcGPA(this.grade);
@@ -87,6 +94,4 @@ public class StudentData {
                 ", grade=" + grade +
                 '}';
     }
-
-
 }
