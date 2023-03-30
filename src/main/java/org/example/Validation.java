@@ -1,26 +1,26 @@
 package org.example;
 
 public class Validation {
-
-    public  static void IsStudentDataTrue(StudentData student) {
+    public  static String IsStudentDataTrue(StudentData student) {
         if (!(student.getName().matches("^[A-Za-z][A-Za-z ]*$"))) {
-            throw new IllegalArgumentException("Invalid student name");
+            return ("Invalid student name");
         }
         if (!(student.getId().matches("^[0-9]{7}[A-Za-z0-9]$"))){
-            throw new IllegalArgumentException("Invalid student id");
+            return("Invalid student id");
         }
         if (!(student.getMarks().get(0) >= 0 && student.getMarks().get(0)  <= 10)) {
-            throw new IllegalArgumentException("Invalid activity mark");
+            return("Invalid activity mark");
         }
         if (!(student.getMarks().get(1)  >= 0 && student.getMarks().get(1)  <= 10)) {
-            throw new IllegalArgumentException("Invalid oral/practical mark");
+            return("Invalid oral/practical mark");
         }
         if (!(student.getMarks().get(2)  >= 0 && student.getMarks().get(2)  <= 20)) {
-            throw new IllegalArgumentException("Invalid midterm exam mark");
+            return("Invalid midterm exam mark");
         }
         if (!(student.getMarks().get(3)  >= 0 && student.getMarks().get(3)  <= 60)) {
-            throw new IllegalArgumentException("Invalid final exam mark");
+            return("Invalid final exam mark");
         }
+        return ("valid");
     }
     public  static void IsStubjectDataTrue(String[] subject) {
         if (!(subject[0].matches("^[A-Za-z][A-Za-z ]*$")))  {

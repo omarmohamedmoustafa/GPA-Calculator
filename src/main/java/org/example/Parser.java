@@ -8,11 +8,6 @@ public class Parser {
         ArrayList<StudentData> dataArr = new ArrayList<>();
 
         try{
-            String[] subjectInfo =  Arr.get(0).split(",");
-            Validation.IsStubjectDataTrue(subjectInfo);
-            String subjectName=subjectInfo[0];
-            String fullMark=subjectInfo[0];
-
             for(int i =1 ; i<Arr.size();i++)
             {
                 ArrayList<Double> marks = new ArrayList<>(4);
@@ -22,10 +17,10 @@ public class Parser {
               }
 
                 StudentData newStudent = new StudentData(fields[0],fields[1],marks);
-                System.out.println(newStudent.toString());
+            //    System.out.println(newStudent.toString());
                 // after validation set degree and push newStudent to dataArr
-                Validation.IsStudentDataTrue(newStudent);                newStudent.setDegree();
-//              dataArr.add(studentData);
+                Validation.IsStudentDataTrue(newStudent);  //              newStudent.setDegree();
+                dataArr.add(newStudent);
             }
 
 
