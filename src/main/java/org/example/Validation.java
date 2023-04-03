@@ -22,7 +22,7 @@ public class Validation {
         }
         return ("valid");
     }
-    public  static void IsStubjectDataTrue(String[] subject) {
+    public  static void IsSubjectDataTrue(String[] subject) {
         if (!(subject[0].matches("^[A-Za-z][A-Za-z ]*$")))  {
             throw new IllegalArgumentException("Invalid subject name");
         }

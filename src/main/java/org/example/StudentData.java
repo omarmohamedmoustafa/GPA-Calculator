@@ -13,7 +13,9 @@ enum GPA {
     CMinus,
     DPlus,
     D,
-    F
+    F,
+    UnavailableSmallerThanZ,
+    UnavailableBiggerThanH
 }
 
 public class StudentData {
@@ -33,6 +35,7 @@ public class StudentData {
         this.id = id;
         this.marks = marks;
         this.grade = -1;
+        setDegree();
     }
 
     public GPA getGpa() {
@@ -55,7 +58,7 @@ public class StudentData {
         }
         this.grade = sum;
     }
-    public void setDegree ()
+    private void setDegree ()
     {
         setGrade();
         setGpa();
@@ -83,6 +86,7 @@ public class StudentData {
 
     public void setMarks(ArrayList<Double> marks) {
         this.marks = marks;
+        setDegree();
     }
     @Override
     public String toString() {

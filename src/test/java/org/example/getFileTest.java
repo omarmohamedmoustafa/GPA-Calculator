@@ -9,18 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class getFileTest {
 
     @Test
-    void fileRead() {
-        String [] Arr0 =  {"1John Doe","","Doe John"};
+    void fileRead_PositiveScenario() {
+        String [] Arr0 =  {"John Doe","Jane Smith","Bob Johnson"};
+        assertArrayEquals(Arr0, getFile.FileRead("getFileTest1.txt").toArray(),"Failed @ : fileRead_PositiveScenario ");
+    }
 
-        String [] Arr1 =  {"John Doe", "ssss","Doe John"};
-
-        String [] Arr2 =  {"John Doe", "1", "Doe John"};
-
-        assertAll(
-
-                () -> assertArrayEquals(Arr0, getFile.FileRead("test.txt").toArray(), "Hi"),
-                () -> assertArrayEquals(Arr1, getFile.FileRead("test.txt").toArray(),"Bye"),
-                () -> assertArrayEquals(Arr2, getFile.FileRead("test.txt").toArray())
-        );
+    @Test
+    void fileRead_EmptyLine() {
+        String [] Arr0 =  {"John Doe","","Bob Johnson"};
+        assertArrayEquals(Arr0, getFile.FileRead("getFileTest2.txt").toArray(),"Failed @ : fileRead_EmptyLine ");
     }
 }
