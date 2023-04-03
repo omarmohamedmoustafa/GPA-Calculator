@@ -19,7 +19,8 @@ public class Parser {
                 StudentData newStudent = new StudentData(fields[0],fields[1],marks);
             //    System.out.println(newStudent.toString());
                 // after validation set degree and push newStudent to dataArr
-                Validation.IsStudentDataTrue(newStudent);  //              newStudent.setDegree();
+                Validation.IsStudentDataTrue(newStudent);  //
+
                 dataArr.add(newStudent);
             }
 

@@ -7,7 +7,13 @@ public class GPACalculator {
         //double grade = studentData.getGrade();
 
         if(grade > 100 || grade < 0) {
-            throw new IllegalArgumentException();
+
+            if(grade>100)
+                //throw new IllegalArgumentException("Wrong input degree : degree must be <= 100");
+                return GPA.UnavailableBiggerThanH;
+            if(grade<0)
+                //throw new IllegalArgumentException("Wrong input degree : degree must be >= 0");
+                return GPA.UnavailableSmallerThanZ;
         }
         if(grade >= 97 ) {
             return GPA.APlus;
