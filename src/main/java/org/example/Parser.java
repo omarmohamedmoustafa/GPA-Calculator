@@ -6,9 +6,12 @@ public class Parser {
 
     public static ArrayList <StudentData> parse(ArrayList<String> Arr) {
         ArrayList<StudentData> dataArr = new ArrayList<>();
-
         try{
-            for(int i =1 ; i<Arr.size();i++)
+            String[] subjectInfo = ((String)Arr.get(0)).split(",");
+            Validation.IsSubjectDataTrue(subjectInfo);
+            String subjectName = subjectInfo[0];
+            String fullMark = subjectInfo[0];
+            for(int i = 1 ; i<Arr.size();i++)
             {
                 ArrayList<Double> marks = new ArrayList<>(4);
                 String[] fields =  Arr.get(i).split(",");
@@ -20,7 +23,6 @@ public class Parser {
             //    System.out.println(newStudent.toString());
                 // after validation set degree and push newStudent to dataArr
                 Validation.IsStudentDataTrue(newStudent);  //
-
                 dataArr.add(newStudent);
             }
 
