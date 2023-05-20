@@ -1,16 +1,20 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Parser {
 
+    public static String[] getSubjectInfo(ArrayList<String> Arr){
+        String[] subjectInfo =  Arr.get(0).split(",");
+        Validation.IsSubjectDataTrue(subjectInfo);
+
+        return  subjectInfo;
+    }
     public static ArrayList <StudentData> parse(ArrayList<String> Arr) {
         ArrayList<StudentData> dataArr = new ArrayList<>();
         try{
-            String[] subjectInfo = ((String)Arr.get(0)).split(",");
-            Validation.IsSubjectDataTrue(subjectInfo);
-            String subjectName = subjectInfo[0];
-            String fullMark = subjectInfo[0];
+
             for(int i = 1 ; i<Arr.size();i++)
             {
                 ArrayList<Double> marks = new ArrayList<>(4);
