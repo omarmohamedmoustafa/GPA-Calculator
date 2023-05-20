@@ -13,23 +13,32 @@ public class Main {
 
         System.out.print("Enter File Name: ");
         path = scan.nextLine();
+
         //outToFile();
         ArrayList<String> Arr = new ArrayList<>();
+        //get data from file
         Arr = getFile.FileRead(path);
-        String str1 = Arr.get(0);
-        Arr.remove(0);
-        String[] fields =  str1.split(",");
-        //Validation.IsStubjectDataTrue(fields);
+//        String str1 = Arr.get(0);
+//        Arr.remove(0);
+//        String[] fields =  str1.split(",");
+//        //Validation.IsStubjectDataTrue(fields);
+
+        String[] subjectData = Parser.getSubjectInfo(Arr);
+        System.out.println("Subject Name: " + subjectData[0] + "," + "Subject Code: " + subjectData[1] +", Subject Marks: " + subjectData[2]);
         ArrayList<StudentData> data =  Parser.parse(Arr);
-        String str = "subject name : " + fields[0] + "(" + fields[1] + ")" + " total mark:" + fields[2] + "\n";//str1 + "\n";
-        for(int i = 0 ; i < data.size(); i++ ) {
-            StudentData sData = data.get(i);
-            str +=   "Student name : "+ sData.getName() + "\t" +
-                     "Student ID : "+ sData.getId() + "\t"+ 
-                     "Student Gpa : "+sData.getGpa() +",,," +
-                     "Student grade : "+sData.getGrade()  + "\n";
+        System.out.println();
+        for (int i = 0; i < data.size(); i++) {
+            System.out.println(data.get(i).toString());
         }
-        System.out.println(str);
+//        String str = "subject name : " + fields[0] + "(" + fields[1] + ")" + " total mark:" + fields[2] + "\n";//str1 + "\n";
+//        for(int i = 0 ; i < data.size(); i++ ) {
+//            StudentData sData = data.get(i);
+//            str +=   "Student name : "+ sData.getName() + "\t" +
+//                     "Student ID : "+ sData.getId() + "\t"+
+//                     "Student Gpa : "+sData.getGpa() +",,," +
+//                     "Student grade : "+sData.getGrade()  + "\n";
+//        }
+//        System.out.println(str);
 //        outToFile(str);
     }
 //    static void outToFile(String str) {
