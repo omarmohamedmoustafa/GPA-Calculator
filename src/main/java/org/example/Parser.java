@@ -22,7 +22,7 @@ public class Parser {
                 }
                 StudentData newStudent = new StudentData(fields[0],fields[1],marks);
                 // after validation set degree and push newStudent to dataArr
-                Validation.IsStudentDataTrue(newStudent);  //
+                Validation.IsStudentDataTrue(newStudent);
                 dataArr.add(newStudent);
             }
             return  dataArr;

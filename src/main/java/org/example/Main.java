@@ -27,8 +27,7 @@ public class Main {
 
         outToFile(data , subjectData);
     }
-
-
+    
     static void outToFile(ArrayList<StudentData> data ,String[] subjectData ) {
         try {
             File path = new File("out.txt");

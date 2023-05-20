@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Validation {
+
     public  static String IsStudentDataTrue(StudentData student) {
         if (!(student.getName().matches("^[A-Za-z][A-Za-z ]*$"))) {
             return ("Invalid student name");}
