@@ -20,6 +20,7 @@ enum GPA {
 
 public class StudentData {
     private String name;
+    private Boolean flag = false;
     private String id;
 
     private ArrayList<Double> marks;
@@ -49,7 +50,9 @@ public class StudentData {
     private void setGpa() {
         this.gpa = GPACalculator.calcGPA(this.grade);
     }
-
+    public void setGrade_flag(Boolean flag){
+        this.flag = flag;
+    }
     private void setGrade() {
         Double sum =0.0;
         for(int i =0 ;i < marks.size();i++)
@@ -90,12 +93,14 @@ public class StudentData {
     }
     @Override
     public String toString() {
-        return "StudentData{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", marks=" + marks +
-                ", gpa=" + gpa +
-                ", grade=" + grade +
-                '}';
+        if(this.flag == false){
+            return "StudentData{" +
+                    "name='" + name + '\'' +
+                    ", id='" + id + '\'' +
+                    "has invalid marks"+
+                    '}';
+        }
+        return name + "\t" + id + "\t" + gpa + "\t"
+                + grade;
     }
 }

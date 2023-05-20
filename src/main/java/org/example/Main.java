@@ -18,47 +18,41 @@ public class Main {
         ArrayList<String> Arr = new ArrayList<>();
         //get data from file
         Arr = getFile.FileRead(path);
-//        String str1 = Arr.get(0);
-//        Arr.remove(0);
-//        String[] fields =  str1.split(",");
-//        //Validation.IsStubjectDataTrue(fields);
 
         String[] subjectData = Parser.getSubjectInfo(Arr);
-        System.out.println("Subject Name: " + subjectData[0] + "," + "Subject Code: " + subjectData[1] +", Subject Marks: " + subjectData[2]);
+//        System.out.println("Subject Name: " + subjectData[0] + "," + "Subject Code: " + subjectData[1] +", Subject Marks: " + subjectData[2]);
         ArrayList<StudentData> data =  Parser.parse(Arr);
-        System.out.println();
-        for (int i = 0; i < data.size(); i++) {
-            System.out.println(data.get(i).toString());
+//        System.out.println();
+//        for (int i = 0; i < data.size(); i++) {
+//            System.out.println(data.get(i).toString());
+//        }
+        String str = "Subject Name: " + subjectData[0] + "," + "Subject Code: " + subjectData[1] +", Max Mark: " + subjectData[2]+"\n";
+        str += "Student name    Student number      GPA     Grade\n";
+        for(int i = 0 ; i < data.size(); i++ ) {
+            str += data.get(i).toString() + "\n";
+            //System.out.println(data.get(i).toString());
         }
-//        String str = "subject name : " + fields[0] + "(" + fields[1] + ")" + " total mark:" + fields[2] + "\n";//str1 + "\n";
-//        for(int i = 0 ; i < data.size(); i++ ) {
-//            StudentData sData = data.get(i);
-//            str +=   "Student name : "+ sData.getName() + "\t" +
-//                     "Student ID : "+ sData.getId() + "\t"+
-//                     "Student Gpa : "+sData.getGpa() +",,," +
-//                     "Student grade : "+sData.getGrade()  + "\n";
-//        }
-//        System.out.println(str);
-//        outToFile(str);
+        //System.out.println(str);
+        outToFile(str);
     }
-//    static void outToFile(String str) {
-//        try {
-//            File path = new File("C:\\Users\\aliel\\Desktop\\testing project\\gpa-calculator\\outh.txt");
-//
-//            //passing file instance in filewriter
-//            FileWriter wr = new FileWriter(path);
-//
-//            //calling writer.write() method with the string
-//            wr.write(str);
-//
-//            //flushing the writer
-//            wr.flush();
-//
-//            //closing the writer
-//            wr.close();
-//
-//        } catch (Error | IOException e) {
-//
-//        }
-//    }
+    static void outToFile(String str) {
+        try {
+            File path = new File("out.txt");
+
+            //passing file instance in filewriter
+            FileWriter wr = new FileWriter(path);
+
+            //calling writer.write() method with the string
+            wr.write(str);
+
+            //flushing the writer
+            wr.flush();
+
+            //closing the writer
+            wr.close();
+
+        } catch (Error | IOException e) {
+
+        }
+    }
 }

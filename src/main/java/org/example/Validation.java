@@ -16,6 +16,7 @@ public class Validation {
             return("Invalid midterm exam mark");}
         if (!(student.getMarks().get(3)  >= 0 && student.getMarks().get(3)  <= 60)) {
             return("Invalid final exam mark");}
+        student.setGrade_flag(true);
         return ("valid");
     }
     public  static void IsSubjectDataTrue(String[] subject) {
