@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ValidationTest {
+class ValidationTest_UnitTesting {
 
     StudentData s1;
     String[] subject;

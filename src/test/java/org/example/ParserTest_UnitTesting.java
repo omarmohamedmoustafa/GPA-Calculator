@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ParserTest {
+class ParserTest_UnitTesting {
 
     StudentData expected;
     ArrayList<String> inputData;
@@ -19,8 +19,8 @@ class ParserTest {
         marks = new ArrayList<Double>(Arrays.asList(8.0, 9.0, 18.0, 50.0));
     }
 
-    // only alphabetic
-    // FirstNotSpace
+    // parser of students
+    // only alphabetic ,FirstNotSpace
     @Test
     void parser_positiveScenario() {
         inputData.set(1,"John Doe,12345678,8,9,18,50");
@@ -49,7 +49,7 @@ class ParserTest {
     }
 
     @Test
-        // separate fields only if ',' between them
+    // separate fields only if ',' between them
     void parser_dollarSeparator() {
         inputData.set(1,"John$Doe,12345678,8,9,18,50");
         expected = new StudentData("John$Doe", "12345678",marks);
@@ -62,14 +62,31 @@ class ParserTest {
         );
     }
 
-    @Test
-    void parseValidation() {
+    // subjectSeparation
 
-        // if no ',' exists --> store line as one field
-        // if exists ',' and any other separators like '.'
-        // ',' at first of line
-        // ',' at end of line
-        // number of fields > no of commas by 1
+    @Test
+        //need to commment line 10 in Parser.java
+    void parser_Subject_positiveScenario() {
+        String[] expectedSubject = {"English","ENG101", "100"};
+        String[] res = Parser.getSubjectInfo(inputData);
+        assertArrayEquals(expectedSubject, res, "Failure @ : parser_Subject_positiveScenario--Invalid parse");
+    }
+    @Test
+    //need to commment line 10 in Parser.java
+    void parser_Subject_dotSeparator() {
+        inputData.set(0,"English.ENG101,100");
+        String[] expectedSubject = {"English.ENG101", "100"};
+        String[] res = Parser.getSubjectInfo(inputData);
+        assertArrayEquals(expectedSubject, res, "Failure @ : parser_Subject_dotSeparator--Invalid parse");
+    }
+
+    @Test
+    //need to commment line 10 in Parser.java
+    void parser_Subject_dollarSeparator() {
+        inputData.set(0,"$EnglishENG101,100");
+        String[] expectedSubject = {"$EnglishENG101", "100"};
+        String[] res = Parser.getSubjectInfo(inputData);
+        assertArrayEquals(expectedSubject, res, "Failure @ : parser_Subject_dollarSeparator--Invalid parse");
     }
 
 }

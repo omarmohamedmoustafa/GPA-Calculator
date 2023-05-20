@@ -1,6 +1,5 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IntegrationTest {
+class getFileParser_IntegrationTest {
 
     @Test
     void fileRead() {
