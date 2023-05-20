@@ -1,4 +1,7 @@
 package org.example;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -20,36 +23,32 @@ public class Main {
         Arr = getFile.FileRead(path);
 
         String[] subjectData = Parser.getSubjectInfo(Arr);
-//        System.out.println("Subject Name: " + subjectData[0] + "," + "Subject Code: " + subjectData[1] +", Subject Marks: " + subjectData[2]);
         ArrayList<StudentData> data =  Parser.parse(Arr);
-//        System.out.println();
-//        for (int i = 0; i < data.size(); i++) {
-//            System.out.println(data.get(i).toString());
-//        }
-        String str = "Subject Name: " + subjectData[0] + "," + "Subject Code: " + subjectData[1] +", Max Mark: " + subjectData[2]+"\n";
-        str += "Student name    Student number      GPA     Grade\n";
-        for(int i = 0 ; i < data.size(); i++ ) {
-            str += data.get(i).toString() + "\n";
-            //System.out.println(data.get(i).toString());
-        }
-        //System.out.println(str);
-        outToFile(str);
+
+        outToFile(data , subjectData);
     }
-    static void outToFile(String str) {
+
+
+    static void outToFile(ArrayList<StudentData> data ,String[] subjectData ) {
         try {
             File path = new File("out.txt");
+            PrintWriter out = new PrintWriter(new FileWriter(path, true));
+            out.print("");
 
-            //passing file instance in filewriter
-            FileWriter wr = new FileWriter(path);
-
-            //calling writer.write() method with the string
-            wr.write(str);
-
-            //flushing the writer
-            wr.flush();
-
-            //closing the writer
-            wr.close();
+            out.printf("---------------------------------------------------------------------\n");
+            out.printf("%-30s%-30s%-30s%n","Subject name: "+subjectData[0],"Subject code: "+subjectData[1],"Max mark: "+subjectData[2]);
+            out.printf("********************************************\n");
+            out.printf("\n");
+            out.printf("%-20s%-20s%-20s%-15s%n","Student name","Student number","GPA","Grade");
+            out.printf("---------------------------------------------------------------------\n");
+            for(int i = 0 ; i <data.size() ; i++){
+                String[] s = data.get(i).ToString();
+                out.printf("%-20s%-20s%-20s%-15s%n",s[0],s[1],s[2],s[3]);
+            }
+            out.printf("---------------------------------------------------------------------\n");
+            out.printf("\n\n\n=========================================================================\n\n\n");
+            out.flush();
+            out.close();
 
         } catch (Error | IOException e) {
 

@@ -91,16 +91,21 @@ public class StudentData {
         this.marks = marks;
         setDegree();
     }
-    @Override
-    public String toString() {
+
+    public String[] ToString() {
         if(this.flag == false){
-            return "StudentData{" +
-                    "name='" + name + '\'' +
-                    ", id='" + id + '\'' +
-                    "has invalid marks"+
-                    '}';
+            String [] s = new String[4];
+            s[0]=name;
+            s[1]=id;
+            s[2]="Invalid marks";
+            s[3]="--";
+            return s;
         }
-        return name + "\t" + id + "\t" + gpa + "\t"
-                + grade;
+        String [] s = new String[4];
+        s[0]=name;
+        s[1]=id;
+        s[2]=getGpa().toString();
+        s[3]=Double.toString(getGrade());
+        return s;
     }
 }
