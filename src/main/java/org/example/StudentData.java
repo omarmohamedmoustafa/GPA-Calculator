@@ -13,7 +13,9 @@ enum GPA {
     CMinus,
     DPlus,
     D,
-    F
+    F,
+    UnavailableSmallerThanZ,
+    UnavailableBiggerThanH
 }
 
 public class StudentData {
@@ -25,6 +27,15 @@ public class StudentData {
     private GPA gpa;
     private double grade;
 
+    private boolean grade_flag = false;
+
+    public boolean getGrade_flag() {
+        return grade_flag;
+    }
+
+    public void setGrade_flag(boolean grade_flag) {
+        this.grade_flag = grade_flag;
+    }
     StudentData() {
         this.grade = -1;
     }
@@ -33,6 +44,7 @@ public class StudentData {
         this.id = id;
         this.marks = marks;
         this.grade = -1;
+        //setDegree();
     }
 
     public GPA getGpa() {
@@ -56,9 +68,11 @@ public class StudentData {
         this.grade = sum;
     }
     public void setDegree ()
-    {
+    {   
+        if(this.getGrade_flag()){
         setGrade();
         setGpa();
+        }
     }
     public String getName() {
         return name;
@@ -83,6 +97,7 @@ public class StudentData {
 
     public void setMarks(ArrayList<Double> marks) {
         this.marks = marks;
+        setDegree();
     }
     @Override
     public String toString() {

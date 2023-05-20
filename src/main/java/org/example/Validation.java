@@ -1,28 +1,35 @@
 package org.example;
 
-public class Validation {
-    public  static String IsStudentDataTrue(StudentData student) {
+public class Validation { 
+    public  static void IsStudentDataTrue(StudentData student) {
         if (!(student.getName().matches("^[A-Za-z][A-Za-z ]*$"))) {
-            return ("Invalid student name");
+            System.out.println( student.getName() + "is Invalid student name");
+            return;
         }
         if (!(student.getId().matches("^[0-9]{7}[A-Za-z0-9]$"))){
-            return("Invalid student id");
+            System.out.println( student.getId() + "is Invalid student ID");
+            return;
         }
         if (!(student.getMarks().get(0) >= 0 && student.getMarks().get(0)  <= 10)) {
-            return("Invalid activity mark");
+            System.out.println( student.getName() + "has Invalid activity mark"); 
+            return;
         }
         if (!(student.getMarks().get(1)  >= 0 && student.getMarks().get(1)  <= 10)) {
-            return("Invalid oral/practical mark");
+            System.out.println( student.getName() + "has Invalid oral/practical mark");
+            return;
         }
         if (!(student.getMarks().get(2)  >= 0 && student.getMarks().get(2)  <= 20)) {
-            return("Invalid midterm exam mark");
+            System.out.println( student.getName() + "has Invalid midterm exam mark");
+            return;
         }
         if (!(student.getMarks().get(3)  >= 0 && student.getMarks().get(3)  <= 60)) {
-            return("Invalid final exam mark");
+            System.out.println( student.getName() + "has Invalid final exam mark");  
+            return;
         }
-        return ("valid");
+        
+        student.setGrade_flag(true);
     }
-    public  static void IsStubjectDataTrue(String[] subject) {
+    public  static void IsSubjectDataTrue(String[] subject) {
         if (!(subject[0].matches("^[A-Za-z][A-Za-z ]*$")))  {
             throw new IllegalArgumentException("Invalid subject name");
         }
