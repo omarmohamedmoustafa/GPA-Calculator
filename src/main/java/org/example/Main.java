@@ -10,21 +10,15 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-
         String path;
         Scanner scan = new Scanner(System.in);
-
         System.out.print("Enter File Name: ");
         path = scan.nextLine();
-
-        //outToFile();
         ArrayList<String> Arr = new ArrayList<>();
         //get data from file
         Arr = getFile.FileRead(path);
-
         String[] subjectData = Parser.getSubjectInfo(Arr);
         ArrayList<StudentData> data =  Parser.parse(Arr);
-
         outToFile(data , subjectData);
     }
     

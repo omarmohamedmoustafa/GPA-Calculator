@@ -95,10 +95,10 @@ public class StudentData {
     public String[] ToString() {
         if(this.flag == false){
             String [] s = new String[4];
-            s[0]=name;
-            s[1]=id;
-            s[2]="Invalid marks";
-            s[3]="--";
+            s[0]="";
+            s[1]="";
+            s[2]="";
+            s[3]="";
             return s;
         }
         String [] s = new String[4];

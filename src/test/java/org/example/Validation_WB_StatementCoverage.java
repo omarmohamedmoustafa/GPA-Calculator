@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+    //10
 class Validation_WB_StatementCoverage {
     //Move to all if statements and last return "Valid"(8/14)==>57.14%
     //Statements: 1, 3, 5, 7, 9, 11, 13, 14

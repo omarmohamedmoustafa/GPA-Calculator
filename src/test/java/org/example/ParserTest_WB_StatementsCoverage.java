@@ -17,7 +17,7 @@ class ParserTest_WB_StatementsCoverage {
         inputData = new ArrayList<String>(Arrays.asList("English,ENG101,100","John Doe,12345678,8,9,18,50"));
         marks = new ArrayList<Double>(Arrays.asList(8.0, 9.0, 18.0, 50.0));
     }
-
+    //2
     //getSubjectInfo function
     //Statments: 1, 2, 3
     @Test
